@@ -5,9 +5,11 @@ import Users from "./pages/Users";
 import "./styles/App.scss";
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Users />} />
-      <Route path="/:id" element={<User />} />
-    </Routes>
+    <div className="wrap">
+      <Routes>
+        <Route path="/" element={<Users />} />
+        <Route path="/:id" element={<User />} />
+      </Routes>
+    </div>
   );
 }

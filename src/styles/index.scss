@@ -6,7 +6,6 @@
   box-sizing: border-box;
   font-family: get($fonts, "primary");
   font-weight: normal;
-  overflow: hidden;
 
   /* width */
   ::-webkit-scrollbar {
@@ -27,6 +26,7 @@
 body {
   position: relative;
   height: 100vh;
+  padding: 40px 0;
   background: get($colors, "gradient");
 }
 
@@ -34,9 +34,8 @@ a {
   display: block;
   width: max-content;
   text-decoration: none;
-  @include adaptiv-font(40, 24);
   z-index: z(page-wrapper);
-  transition: .5s linear;
+  transition: 0.5s linear;
   &:hover {
     color: get($colors, "linkHover");
   }
@@ -46,5 +45,6 @@ h3,
 h4,
 p,
 a {
+  @include adaptiv-font(25, 18);
   color: get($colors, "font");
 }
