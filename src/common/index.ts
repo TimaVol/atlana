@@ -1,6 +1,6 @@
 import { Octokit } from "octokit";
 
 export const octokit = new Octokit({
-  auth: "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",
+  auth: process.env.REACT_APP_GH_ACCESS_TOKEN,
 });
 

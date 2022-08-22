@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { octokit } from "../common";
 import { UserTypes } from "../common/types";
+import "../styles/components/UserRow.scss";
 
 interface UserRowTypes {
   user: UserTypes;

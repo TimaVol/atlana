@@ -28,6 +28,7 @@ export default function User() {
       forks_count: 2,
     },
   ]);
+
   const { id } = useParams();
 
   // useEffect(() => {
@@ -54,7 +55,12 @@ export default function User() {
     <>
       <h1 className="mainTitle">GitHub Searcher</h1>
       <UserInfo username={id} />
-      <Search placeholder="Search for Users" setData="" searchUrl='GET /search/repositories' />
+      <Search
+        placeholder="Search for User's Repositories"
+        setData={setRepos}
+        searchUrl="GET /search/repositories"
+        searchKeywords={`user:${id} in:name`}
+      />
 
       {repos?.map((repo) => (
         <RepoRow repo={repo} key={Math.random()} />

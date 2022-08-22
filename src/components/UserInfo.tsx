@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { octokit } from "../common";
 import { UserTypes } from "../common/types";
+import "../styles/components/UserInfo.scss";
 
 interface UserInfoTypes {
   username?: string;

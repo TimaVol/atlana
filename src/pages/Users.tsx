@@ -43,7 +43,12 @@ export default function Users() {
   return (
     <>
       <h1 className="mainTitle">GitHub Searcher</h1>
-      <Search placeholder="Search for Users" setData="" searchUrl="GET /search/users"/>
+      <Search
+        placeholder="Search for Users"
+        setData={setUsers}
+        searchUrl="GET /search/users"
+        searchKeywords="type:user in:login"
+      />
       {users?.map((user) => (
         <UserRow key={Math.random()} user={user} />
       ))}

@@ -1,4 +1,6 @@
 import { RepoTypes } from "../common/types";
+import "../styles/components/RepoRow.scss";
+
 interface RepoRowTypes {
   repo: RepoTypes;
 }
