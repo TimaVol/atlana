@@ -9,25 +9,25 @@ interface UserRowTypes {
 }
 
 export default function UserRow({ user }: UserRowTypes) {
-  const [reposCount, setReposCount] = useState(0);
+  const [reposCount, setReposCount] = useState<number>();
 
-  // useEffect(() => {
-  //   try {
-  //     const fetchData = async () => {
-  //       try {
-  //         const res = await octokit.request("GET /users/{username}", {
-  //           username: user.login,
-  //         });
-  //         setReposCount(res.data.public_repos);
-  //       } catch (error) {
-  //         console.error(error);
-  //       }
-  //     };
-  //     fetchData();
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }, [user.login]);
+  useEffect(() => {
+    try {
+      const fetchData = async () => {
+        try {
+          const res = await octokit.request("GET /users/{username}", {
+            username: user.login,
+          });
+          setReposCount(res.data.public_repos);
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      fetchData();
+    } catch (error) {
+      console.error(error);
+    }
+  }, [user.login]);
 
   return (
     <Link to={"/" + user.login} className="userRow">

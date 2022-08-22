@@ -1,6 +1,5 @@
 import { ChangeEvent } from "react";
 import { octokit } from "../common";
-import { UserTypes } from "../common/types";
 import "../styles/components/Search.scss";
 interface SearchTypes {
   placeholder: string;
@@ -23,8 +22,6 @@ export default function Search({
     } catch (error) {
       console.error(error);
     }
-
-    console.log(event.target.value);
   };
   return (
     <input

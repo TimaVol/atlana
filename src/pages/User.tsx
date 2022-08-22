@@ -8,48 +8,29 @@ import Search from "../components/Search";
 import UserInfo from "../components/UserInfo";
 
 export default function User() {
-  const [repos, setRepos] = useState<RepoTypes[]>([
-    {
-      name: "30daysoflaptops.github.io",
-      html_url: "https://github.com/mojombo/30daysoflaptops.github.io",
-      stargazers_count: 7,
-      forks_count: 2,
-    },
-    {
-      name: "30daysoflaptops.github.io",
-      html_url: "https://github.com/mojombo/30daysoflaptops.github.io",
-      stargazers_count: 7,
-      forks_count: 2,
-    },
-    {
-      name: "30daysoflaptops.github.io",
-      html_url: "https://github.com/mojombo/30daysoflaptops.github.io",
-      stargazers_count: 7,
-      forks_count: 2,
-    },
-  ]);
+  const [repos, setRepos] = useState<RepoTypes[]>();
 
   const { id } = useParams();
 
-  // useEffect(() => {
-  //   if (id) {
-  //     try {
-  //       const fetchData = async () => {
-  //         await octokit
-  //           .request("GET /users/{username}/repos", {
-  //             username: id,
-  //             per_page: 10,
-  //           })
-  //           .then((res) => setRepos(res.data))
-  //           .catch((err) => console.log(err));
-  //       };
+  useEffect(() => {
+    if (id) {
+      try {
+        const fetchData = async () => {
+          await octokit
+            .request("GET /users/{username}/repos", {
+              username: id,
+              per_page: 10,
+            })
+            .then((res) => setRepos(res.data))
+            .catch((err) => console.log(err));
+        };
 
-  //       fetchData();
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   }
-  // }, [id]);
+        fetchData();
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }, [id]);
 
   return (
     <>
