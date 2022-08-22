@@ -1,13 +1,50 @@
-body {
+@use "core" as *;
+
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  font-family: get($fonts, "primary");
+  font-weight: normal;
+  overflow: hidden;
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  position: relative;
+  height: 100vh;
+  background: get($colors, "gradient");
+}
+
+a {
+  display: block;
+  width: max-content;
+  text-decoration: none;
+  @include adaptiv-font(40, 24);
+  z-index: z(page-wrapper);
+  transition: .5s linear;
+  &:hover {
+    color: get($colors, "linkHover");
+  }
+}
+
+h3,
+h4,
+p,
+a {
+  color: get($colors, "font");
 }

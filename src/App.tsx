@@ -1,23 +1,13 @@
 import React from "react";
+import { Route, Routes } from "react-router-dom";
+import User from "./pages/User";
+import Users from "./pages/Users";
 import "./styles/App.scss";
-
 export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Users />} />
+      <Route path="/:id" element={<User />} />
+    </Routes>
   );
 }
