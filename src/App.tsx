@@ -5,7 +5,7 @@ import Users from "./pages/Users";
 import "./styles/App.scss";
 export default function App() {
   return (
-    <div className="wrap">
+    <div className="appWrap">
       <Routes>
         <Route path="/" element={<Users />} />
         <Route path="/:id" element={<User />} />

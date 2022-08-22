@@ -33,16 +33,19 @@ export default function UserInfo({ username }: UserInfoTypes) {
   }, [username]);
 
   return (
-    <div className="userInfoWrap">
-      <img src={user?.avatar_url} alt="avatar" />
-      <div className="text">
-        <p>{user?.login}</p>
-        <p>{user?.email}</p>
-        <p>{user?.location}</p>
-        <p>{joinDate}</p>
-        <p>{user?.followers} Followers</p>
-        <p>Following {user?.following}</p>
+    <div className="userInfo">
+      <div className="wrap">
+        <img src={user?.avatar_url} alt="avatar" />
+        <div className="text">
+          <p>{user?.login}</p>
+          <p>{user?.email}</p>
+          <p>{user?.location}</p>
+          <p>{joinDate}</p>
+          <p>{user?.followers} Followers</p>
+          <p>Following {user?.following}</p>
+        </div>
       </div>
+      <p className="bio">{user?.bio}</p>
     </div>
   );
 }

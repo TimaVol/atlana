@@ -7,6 +7,7 @@ export interface UserTypes {
   created_at?: string;
   followers?: number;
   following?: number;
+  bio?: string | null;
 }
 
 export interface RepoTypes {
